@@ -1,0 +1,31 @@
+package example;    //GreatingController
+
+import example1.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class GreetingController {
+
+    @Autowired // it creates the greetingService object.
+    private GreetingService service;
+    @RequestMapping("/greeting")
+    public String welcome(){
+
+        return service.welcomeService();
+    }
+}
+
+
+
+package example1; // GreatingService
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class GreetingService {
+    public String welcomeService(){
+        return "Good Moring!";
+    }
+}
